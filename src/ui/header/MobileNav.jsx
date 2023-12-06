@@ -2,11 +2,16 @@
 import { IoMdMenu } from "react-icons/io";
 import { RxCross1 } from "react-icons/rx";
 
-function MobileNav({ setOpenMobileNav, openMobileNav }) {
+function MobileNav({ setOpenMobileNav, openMobileNav, setSeachAction }) {
   return (
-    <div onClick={() => setOpenMobileNav((prev) => !prev)}>
-      {!openMobileNav && <IoMdMenu size={24} color="#2563eb" />}
-      {openMobileNav && <RxCross1 size={24} color="red" />}
+    <div
+      onClick={() => {
+        setSeachAction(false);
+        setOpenMobileNav((prev) => !prev);
+      }}
+    >
+      {!openMobileNav && <IoMdMenu size={24} color="white" />}
+      {openMobileNav && <RxCross1 size={24} color="white" />}
     </div>
   );
 }

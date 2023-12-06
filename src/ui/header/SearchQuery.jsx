@@ -20,6 +20,7 @@ function SearchQuery() {
           type="text"
           className="w-11/12 bg-transparent"
           value={query}
+          placeholder="Search for movie tv show "
           onChange={(e) => setQuery(e.target.value)}
         />
         <RxCross1

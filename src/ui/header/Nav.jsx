@@ -26,7 +26,7 @@ function Nav() {
   return (
     <nav className="flex gap-4">
       <ul
-        className={`flex font-medium text-cyan-50 gap-8 transition-all duration-1000 ${
+        className={`flex font-medium text-cyan-50 gap-8 transition-all duration-700 ${
           movieNav
             ? "absolute top-[60px] bg-gray-800 p-2 w-full items-center gap-8 z-10 flex-col "
             : "  "
@@ -44,7 +44,13 @@ function Nav() {
       </ul>
 
       <div className="flex justify-center ">
-        <div className="px-4" onClick={() => setSeachAction((prev) => !prev)}>
+        <div
+          className="px-8"
+          onClick={() => {
+            setOpenMobileNav(false);
+            setSeachAction((prev) => !prev);
+          }}
+        >
           {!searchAction && <IoSearch size={24} color="#2563eb" />}
           {searchAction && <RxCross1 size={24} color="green" />}
         </div>
@@ -55,6 +61,7 @@ function Nav() {
           <MobileNav
             setOpenMobileNav={setOpenMobileNav}
             openMobileNav={openMobileNav}
+            setSeachAction={setSeachAction}
           />
         )}
       </div>
