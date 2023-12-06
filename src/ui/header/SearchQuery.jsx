@@ -15,14 +15,19 @@ function SearchQuery() {
   return (
     <form onSubmit={handelSearch}>
       <div className="absolute left-0 top-[60px] bg-slate-100 w-full px-4 py-2 flex gap-4 items-center z-20 ">
-        <IoSearch size={24} color="black" />
+        <IoSearch color="black" size={20} />
         <input
           type="text"
           className="w-11/12 bg-transparent"
           value={query}
+          placeholder="Search for movie tv show "
           onChange={(e) => setQuery(e.target.value)}
         />
-        {query && <RxCross1 className="m-auto" onClick={() => setQuery("")} />}
+        <RxCross1
+          className={`${query ? "visible " : " invisible"} `}
+          onClick={() => setQuery("")}
+          size={20}
+        />
       </div>
     </form>
   );

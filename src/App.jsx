@@ -1,12 +1,13 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
-import Home from "./features/Home";
+import Home from "./features/home/Home";
 import Movie from "./features/Movie";
 import Details from "./features/Details";
 import TvShow from "./features/TvShow";
 import Search from "./features/Search";
 import Bookmarks from "./features/Bookmarks";
 import PageNotFound from "./pages/PageNotFound";
+import { ImgConfigProvider } from "./context/ImageConfig";
 
 const route = createBrowserRouter([
   {
@@ -48,7 +49,11 @@ const route = createBrowserRouter([
   },
 ]);
 function App() {
-  return <RouterProvider router={route} />;
+  return (
+    <ImgConfigProvider>
+      <RouterProvider router={route} />;
+    </ImgConfigProvider>
+  );
 }
 
 export default App;
