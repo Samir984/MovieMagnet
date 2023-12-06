@@ -1,4 +1,12 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import AppLayout from "./pages/AppLayout";
+import Home from "./features/Home";
+import Movie from "./features/Movie";
+import Details from "./features/Details";
+import TvShow from "./features/TvShow";
+import Search from "./features/Search";
+import Bookmarks from "./features/Bookmarks";
+import PageNotFound from "./pages/PageNotFound";
 
 const route = createBrowserRouter([
   {
@@ -29,8 +37,8 @@ const route = createBrowserRouter([
         element: <Search />,
       },
       {
-        path: "/bookmark",
-        element: <BookMark />,
+        path: "/bookmarks",
+        element: <Bookmarks />,
       },
       {
         path: "/*",
