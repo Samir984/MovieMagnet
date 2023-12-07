@@ -5,7 +5,6 @@ import { getApiData } from "../services/movieApi";
 const ImgConfig = createContext();
 function ImgConfigProvider({ children }) {
   const [imgConfig, setImgConfig] = useState({});
-
   useEffect(() => {
     getApiData("configuration").then((data) => {
       setImgConfig({
