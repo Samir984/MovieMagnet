@@ -51,7 +51,7 @@ const route = createBrowserRouter([
 function App() {
   return (
     <ImgConfigProvider>
-      <RouterProvider router={route} />;
+      <RouterProvider router={route} />
     </ImgConfigProvider>
   );
 }
