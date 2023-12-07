@@ -7,8 +7,8 @@ function Home() {
   return (
     <div>
       <HeroSection />
-      <Trending />
-      <Popular/>
+      <Trending/>
+      <Popular />
       <TopRated />
     </div>
   );

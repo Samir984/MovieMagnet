@@ -5,7 +5,6 @@ function useFetch(url) {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const [isError, setIsError] = useState(null);
-
   useEffect(() => {
     async function movieData() {
       setIsLoading(true);
@@ -15,7 +14,7 @@ function useFetch(url) {
         const data = await getApiData(`${url}`);
         setData(data);
       } catch (err) {
-        setIsError(err);
+        setIsError("error occur");
       } finally {
         setIsLoading(false);
       }

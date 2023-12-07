@@ -4,12 +4,12 @@ import Footer from "../ui/Footer";
 
 function AppLayout() {
   return (
-    <div>
+    <div className="">
       <Header />
-      <main className="max-w-7xl mx-auto">
+      <main className="max-w-7xl mx-auto ">
         <Outlet />
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }
