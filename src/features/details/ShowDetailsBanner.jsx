@@ -18,8 +18,6 @@ function ShowDetailsBanner() {
   const posterUrl = imgConfig.posterHQ + data?.poster_path;
   const trailerKey = FetchAgainData?.results[0]?.key;
 
-  console.log(data);
-
   return (
     <div className="p-2">
       {openVideoPopup && (
