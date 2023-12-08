@@ -9,8 +9,9 @@ function ImgConfigProvider({ children }) {
     getApiData("configuration").then((data) => {
       setImgConfig({
         backdrop: data.images.secure_base_url + "original",
-        poster: data.images.secure_base_url + "original",
-        profile: data.images.secure_base_url + "original",
+        posterLQ: data.images.secure_base_url + "w342",
+        posterHQ: data.images.secure_base_url + "w780",
+        profile: data.images.secure_base_url + "w185",
       });
     });
   }, []);

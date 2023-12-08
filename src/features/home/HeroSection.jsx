@@ -1,4 +1,4 @@
-import { lazy, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import useFetch from "../../hooks/usefetch";
 import { useImgConfig } from "../../context/ImageConfig";
 import { randomNumGenerator } from "../../utils/helper";

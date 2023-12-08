@@ -17,7 +17,7 @@ function TopRated() {
           filter={["Movie", "Tv"]}
         />
       </div>
-      <Crousel endPoint={endPoint} />
+      <Crousel endPoint={endPoint} active={active} />
     </div>
   );
 }
