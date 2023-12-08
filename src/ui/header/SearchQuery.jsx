@@ -1,16 +1,9 @@
-import { useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
-import { useNavigate } from "react-router-dom";
+import useSeachQuery from "../../hooks/useSeachQuery";
 
 function SearchQuery() {
-  const [query, setQuery] = useState("");
-  const navigate = useNavigate();
-  function handelSearch(e) {
-    e.preventDefault();
-    navigate(`/search?q=${query}`);
-    setQuery("");
-  }
+  const { query, setQuery, handelSearch } = useSeachQuery();
 
   return (
     <form onSubmit={handelSearch}>

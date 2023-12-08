@@ -1,7 +1,8 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useFetch from "../../hooks/usefetch";
 import { useImgConfig } from "../../context/ImageConfig";
 import { randomNumGenerator } from "../../utils/helper";
+import useSeachQuery from "../../hooks/useSeachQuery";
 
 function HeroSection() {
   const [bgImg, setBgImg] = useState("");
@@ -9,6 +10,8 @@ function HeroSection() {
   const { isLoading, isError, data } = useFetch(
     "trending/all/day?language=en-US"
   );
+  const { query, setQuery, handelSearch } = useSeachQuery();
+
   const [trigger, setTrigger] = useState(1);
 
   useEffect(() => {
@@ -46,11 +49,17 @@ function HeroSection() {
           <h3 className="text-xl font-semibold">
             Millions of movies, TV shows and people to discover. Explore now.
           </h3>
-          <form className="w-full bg-white rounded-3xl flex gap-4 items-center">
+          <form
+            className="w-full bg-white rounded-3xl flex gap-4 items-center"
+            onSubmit={handelSearch}
+          >
             <input
               type="text"
               className=" w-full text-black bg-transparent text-lg px-6"
-              placeholder="Search..."
+              placeholder="Search...
+              "
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
             />
             <button className="bg-cyan-500 px-6 rounded-3xl p-3 ">
               Search

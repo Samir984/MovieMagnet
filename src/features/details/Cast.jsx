@@ -11,7 +11,7 @@ function Cast() {
   return (
     <div className="m-2">
       <h2 className="text-2xl font-medium p-2">Cast</h2>
-      <div className="w-full h-48 bg-gray-800 overflow-y-scroll p-1 flex gap-2">
+      <div className="w-full h-60` bg-gray-800 overflow-y-scroll p-1 flex gap-2">
         {data &&
           data.cast.map((cast) => {
             return <CastItem cast={cast} key={cast.id} />;

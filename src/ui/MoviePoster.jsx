@@ -11,7 +11,7 @@ function MoviePoster({ movieData, active }) {
   const type = active?.toLowerCase();
 
   return (
-    <Link to={`${movieData.media_type || type}/${movieData.id}`}>
+    <Link to={`/${movieData.media_type || type}/${movieData.id}`}>
       <div className="relative w-32 phone:w-40  laptop:w-44 h-full ">
         <div className="flex flex-col gap-2 h-full justify-center">
           <LazyImg
