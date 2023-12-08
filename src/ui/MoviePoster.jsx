@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useImgConfig } from "../context/ImageConfig";
 
 import { formatDate } from "../utils/helper";
-import LazyImg from "./lazyImg";
+import LazyImg from "./LazyImg";
 
 function MoviePoster({ movieData, active }) {
   const { imgConfig } = useImgConfig();
@@ -23,10 +23,10 @@ function MoviePoster({ movieData, active }) {
 
           <div className="flex flex-col ">
             <h3 className="text-white font-semibold line-clamp-1">
-              {movieData?.title || " Data Not Found"}
+              {movieData?.title||movieData?.name}
             </h3>
             <div className="text-gray-400">
-              {formatDate(movieData?.release_date || "Data Not Found")}
+              {formatDate(movieData?.release_date || movieData.first_air_date)}
             </div>
           </div>
           <div className="absolute bg-white w-8 h-8 rounded-full flex justify-center items-center bottom-20">

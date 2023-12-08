@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import AppLayout from "./pages/AppLayout";
 import Home from "./features/home/Home";
 import Movie from "./features/Movie";
-import Details from "./features/Details";
+import Details from "./features/details/Details";
 import TvShow from "./features/TvShow";
 import Search from "./features/Search";
 import Bookmarks from "./features/Bookmarks";
@@ -22,17 +22,14 @@ const route = createBrowserRouter([
         element: <Movie />,
       },
       {
-        path: "/movie/:id",
+        path: "/:media_type/:id",
         element: <Details />,
       },
       {
         path: "/tv",
         element: <TvShow />,
       },
-      {
-        path: "/tv/:id",
-        element: <Details />,
-      },
+    
       {
         path: "/search",
         element: <Search />,
