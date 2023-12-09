@@ -6,7 +6,7 @@ function Recommendations() {
   const endPoint = `${media_type}/${id}/recommendations?language=en-US&page=1`;
 
   return (
-    <div className="my-6 mx-2">
+    <div className="my-14 mx-2">
       <h2 className="text-2xl font-medium pt-4">Recommendations</h2>
       <Crousel endPoint={endPoint} active={media_type} />
     </div>

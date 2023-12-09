@@ -9,9 +9,9 @@ function Cast() {
   );
   console.log(data);
   return (
-    <div className="m-2">
+    <div className="m-2 laptop:h-60 h-44 ">
       <h2 className="text-2xl font-medium p-2">Cast</h2>
-      <div className="w-full h-60` bg-gray-800 overflow-y-scroll p-1 flex gap-2">
+      <div className="w-full h-full bg-gray-800 overflow-y-scroll p-1 flex gap-2">
         {data &&
           data.cast.map((cast) => {
             return <CastItem cast={cast} key={cast.id} />;

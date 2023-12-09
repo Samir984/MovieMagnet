@@ -10,11 +10,11 @@ function CastItem({ cast }) {
   const profileUrl = imgConfig.profile + cast?.profile_path;
 
   return (
-    <div className="flex flex-col h-full flex-shrink-0 w-44 items-center">
+    <div className="flex flex-col h-full flex-shrink-0 w-32 laptop:w-44 items-center">
       <LazyImg
         src={profileUrl.includes("null") ? null : profileUrl}
         alt={cast.name}
-        className="rounded-full w-40  border-2 h-40 "
+        className="rounded-full w-28 border-2 h-28 laptop:w-44 laptop:h-44 "
       />
       <div className="text-center">
         <div className="text-cyan-50 font-medium line-clamp-1">{cast.name}</div>
