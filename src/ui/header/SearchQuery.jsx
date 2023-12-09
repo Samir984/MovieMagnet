@@ -1,9 +1,15 @@
 import { IoSearch } from "react-icons/io5";
 import { RxCross1 } from "react-icons/rx";
 import useSeachQuery from "../../hooks/useSeachQuery";
+import { useEffect, useRef } from "react";
 
 function SearchQuery() {
   const { query, setQuery, handelSearch } = useSeachQuery();
+  const focusSearchBar = useRef();
+  
+  useEffect(() => {
+    focusSearchBar.current.focus();
+  }, []);
 
   return (
     <form onSubmit={handelSearch}>
@@ -15,6 +21,7 @@ function SearchQuery() {
           value={query}
           placeholder="Search for movie tv show "
           onChange={(e) => setQuery(e.target.value)}
+          ref={focusSearchBar}
         />
         <RxCross1
           className={`${query ? "visible " : " invisible"} `}

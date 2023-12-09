@@ -19,7 +19,7 @@ function Search() {
         Search:&nbsp; <q>{queryString}</q>
       </div>
       {data && (
-        <div className="m-2 p-2 grid grid-cols-1 phone:grid-cols-2 laptop:grid-cols-4 bg-gray-900 justify-items-center gap-3 ">
+        <div className="m-2 p-2 grid grid-cols-1 phone:grid-cols-2 laptop:grid-cols-4 bg-gray-900 justify-items-center  gap-3 ">
           {data.map((data) => {
             return <MoviePoster key={data.id} movieData={data} type="search" />;
           })}
@@ -33,25 +33,3 @@ function Search() {
 
 export default Search;
 
-// const foot = useRef();
-// const handelIntersersation = function (entries, observer) {
-
-//   if(entries[0].isIntersecting){
-//     console.log('yes')
-//     observer.disconnect();
-//   }
-// };
-// useEffect(() => {
-//   const targetFoot = foot.current;
-//   const footerObserver = new IntersectionObserver(handelIntersersation, {
-//     root: null,
-//     threshold: 0,
-//   });
-//   footerObserver.observe(targetFoot);
-
-//   return () => {
-//     footerObserver.disconnect();
-//   };
-// }, []);
-
-// ?query=avenger&include_adult=false&language=en-US&page=1

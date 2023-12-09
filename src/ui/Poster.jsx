@@ -8,7 +8,7 @@ function Poster({ posterUrl, movieData, type }) {
     <div
       className={`relative ${
         type === "search"
-          ? "w-52 phone:w-64"
+          ? "w-56 phone:w-full"
           : "w-32 phone:w-40  laptop:w-44 h-full"
       }  `}
     >
@@ -16,7 +16,7 @@ function Poster({ posterUrl, movieData, type }) {
         <LazyImg
           src={posterUrl.includes("null") ? null : posterUrl}
           alt={movieData.original_title}
-          className={`border ${!type && "h-72"}`}
+          className={`border ${!type && "h-72 "}`}
           type="poster"
         />
 

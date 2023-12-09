@@ -12,6 +12,7 @@ function Nav() {
   const [searchAction, setSeachAction] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
+
   useEffect(() => {
     const handleResize = function () {
       if (window.innerWidth <= 540) {
