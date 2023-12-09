@@ -18,23 +18,21 @@ function ShowDetailsBanner() {
   const posterUrl = imgConfig.posterHQ + data?.poster_path;
   const trailerKey = FetchAgainData?.results[0]?.key;
 
-  console.log(data);
-
   return (
-    <div className="p-2">
+    <div className="p-2 ">
       {openVideoPopup && (
         <VideoPopUp closePopUp={setOpenVideoPopup} videoKey={trailerKey} />
       )}
       {isLoading && "Loading..."}
       {isError && "Error occure"}
       {data && (
-        <div className="flex laptop:gap-4 smallScreen:gap-3 smallScreen:flex-col phone:flex-row laptop:items-center ">
+        <div className="flex laptop:gap-4 gap-3 flex-col phone:flex-row laptop:items-center ">
           <LazyImg
             src={posterUrl}
             alt={data.original_name || data.title}
-            className="w-64 smallScreen:self-center"
+            className="w-64 self-center"
           />
-          <div className="flex flex-col gap-3 smallScreen:self-center ">
+          <div className="flex flex-col gap-3 self-center ">
             <div className="text-2xl font-semibold">
               {data.original_name || data.title}
             </div>

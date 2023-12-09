@@ -22,7 +22,6 @@ function useFetch(url, fetchThen = false) {
         const data = await getApiData(`${url}`);
         setData(data);
         if (fetchThen) {
-          console.log("more");
           fetchAgain(data, url);
         }
       } catch (err) {

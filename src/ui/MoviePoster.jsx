@@ -9,21 +9,21 @@ function MoviePoster({ movieData, active }) {
   const { imgConfig } = useImgConfig();
   const posterUrl = imgConfig.posterLQ + movieData.poster_path;
   const type = active?.toLowerCase();
-  console.log(movieData);
+
   return (
-    <Link to={`${movieData.media_type || type}/${movieData.id}`}>
-      <div className="relative w-32 phone:w-40 laptop:w-44 h-full ">
+    <Link to={`/${movieData.media_type || type}/${movieData.id}`}>
+      <div className="relative w-32 phone:w-40  laptop:w-44 h-full ">
         <div className="flex flex-col gap-2 h-full justify-center">
           <LazyImg
             src={posterUrl}
             alt={movieData.original_title}
-            className="h-11/12"
+            className="h-11/12 border"
             loading="lazy"
           />
 
           <div className="flex flex-col ">
             <h3 className="text-white font-semibold line-clamp-1">
-              {movieData?.title||movieData?.name}
+              {movieData?.title || movieData?.name}
             </h3>
             <div className="text-gray-400">
               {formatDate(movieData?.release_date || movieData.first_air_date)}
