@@ -8,7 +8,7 @@ function Recommendations() {
   return (
     <div className="my-14 mx-2">
       <h2 className="text-2xl font-medium pt-4">Recommendations</h2>
-      <Crousel endPoint={endPoint} active={media_type} />
+      <Crousel endPoint={endPoint} active={media_type} caller='recommendation'/>
     </div>
   );
 }
