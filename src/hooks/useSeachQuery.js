@@ -14,3 +14,5 @@ function useSeachQuery() {
 }
 
 export default useSeachQuery;
+
+// ('https://api.themoviedb.org/3/search/movie?query=avenger&include_adult=fals

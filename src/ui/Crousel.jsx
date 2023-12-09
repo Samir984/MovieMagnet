@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import useFetch from "../hooks/usefetch";
-import MoviePoster from "./MoviePoster";
+import MoviePoster from "./MediaPoster";
 
 function Crousel({ endPoint, active, caller = false }) {
   const { isLoading, data, isError } = useFetch(endPoint);

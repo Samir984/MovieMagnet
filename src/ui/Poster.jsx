@@ -2,14 +2,21 @@
 import { formatDate } from "../utils/helper";
 import LazyImg from "./LazyImg";
 
-function Poster({ posterUrl, movieData }) {
+function Poster({ posterUrl, movieData, type }) {
+  console.log(type);
   return (
-    <div className="relative w-32 phone:w-40  laptop:w-44 h-full ">
+    <div
+      className={`relative ${
+        type === "search"
+          ? "w-52 phone:w-64"
+          : "w-32 phone:w-40  laptop:w-44 h-full"
+      }  `}
+    >
       <div className="flex flex-col gap-2 h-full ">
         <LazyImg
           src={posterUrl.includes("null") ? null : posterUrl}
           alt={movieData.original_title}
-          className="h-72 border"
+          className={`border ${!type && "h-72"}`}
           type="poster"
         />
 
