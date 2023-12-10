@@ -20,18 +20,14 @@ function Search() {
         Search:&nbsp; <q>{queryString}</q>
       </div>
       {data && (
-        <>
-          <div className="m-2 p-2 grid grid-cols-1 phone:grid-cols-2 laptop:grid-cols-4 justify-items-center  gap-3 ">
-            {data.map((data) => {
-              return (
-                <MoviePoster key={data.id} movieData={data} type="search" />
-              );
-            })}
-          </div>
-        </>
+        <div className="m-2 p-2 grid grid-cols-1 phone:grid-cols-2 tablet:grid-cols-3 laptop:grid-cols-4 justify-items-center  gap-3 ">
+          {data.map((data) => {
+            return <MoviePoster key={data.id} movieData={data} type="search" />;
+          })}
+        </div>
       )}
 
-      {!isLoading && (
+      {!isError && (
         <div
           className="text-center font-medium "
           onClick={() =>
@@ -39,7 +35,11 @@ function Search() {
           }
         >
           <span className="inline-block p-2 bg-slate-600 text-white ">
-            {totalPage === pageNum ? "End" : "Load more"}
+            {isLoading && pageNum !== totalPage
+              ? "Loading..."
+              : pageNum === totalPage
+              ? "End"
+              : "Load More"}
           </span>
         </div>
       )}

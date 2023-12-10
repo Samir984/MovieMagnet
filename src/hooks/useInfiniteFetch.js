@@ -5,7 +5,7 @@ function useInfiniteFetch(url, page) {
   const [data, setData] = useState([]);
   const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [totalPage, setTotalPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(0);
 
   const fetchNextPage = useCallback(
     async function () {
