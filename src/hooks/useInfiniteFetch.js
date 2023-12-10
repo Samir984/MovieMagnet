@@ -3,24 +3,23 @@ import { getApiData } from "../services/movieApi";
 
 function useInfiniteFetch(url, page) {
   const [data, setData] = useState([]);
-  const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [totalPage, setTotalPage] = useState(1);
 
   const fetchNextPage = useCallback(
-    async function (url) {
-      console.log("sn");
+    async function () {
       try {
         setIsLoading(true);
-        console.log("n");
         const nextData = await getApiData(`${url}`);
         setData((prevData) => [...prevData, ...nextData.results]);
         setIsLoading(false);
       } catch (err) {
+        setIsLoading(false);
         setIsError(err);
       }
     },
-    []
+    [url]
   );
 
   useEffect(() => {
@@ -28,11 +27,11 @@ function useInfiniteFetch(url, page) {
       try {
         setIsLoading(true);
         const data = await getApiData(`${url}`);
-        console.log("o");
         setData(data.results);
         setTotalPage(data.total_pages);
         setIsLoading(false);
       } catch (err) {
+        setIsLoading(false);
         setIsError(err);
       }
     }
@@ -41,7 +40,7 @@ function useInfiniteFetch(url, page) {
       fetchData();
     } else {
       console.log("call");
-      fetchNextPage(url); 
+      fetchNextPage();
     }
   }, [url, page, fetchNextPage]);
 
