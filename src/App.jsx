@@ -4,7 +4,7 @@ import Home from "./features/home/Home";
 import Movie from "./features/Movie";
 import Details from "./features/details/Details";
 import TvShow from "./features/TvShow";
-import Search from "./features/Search";
+import Search from "./features/search/Search";
 import Bookmarks from "./features/Bookmarks";
 import PageNotFound from "./pages/PageNotFound";
 import { ImgConfigProvider } from "./context/ImageConfig";

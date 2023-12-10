@@ -11,7 +11,7 @@ function VideoPopUp({ closePopUp, videoKey }) {
 
   return (
     <div className="fixed flex top-0 left-0  w-full h-full z-20  ">
-      <div className="relative h-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  smallScreen:w-[660px]">
+      <div className="relative h-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[660px]">
         <GrClose
           size={24}
           className="m-2 text-red-600  bg-black p-[2px]"

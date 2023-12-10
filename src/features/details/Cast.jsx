@@ -7,7 +7,7 @@ function Cast() {
   const { isLoading, data, isError } = useFetch(
     `${media_type}/${id}/credits?language=en-US`
   );
-  console.log(data);
+
   return (
     <div className="m-2 laptop:h-60 h-44 ">
       <h2 className="text-2xl font-medium p-2">Cast</h2>
