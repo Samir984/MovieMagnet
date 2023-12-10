@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import useInfiniteFetch from "../../hooks/useInfiniteFetch";
 import { useState } from "react";
 import MoviePoster from "../../ui/MediaPoster";
@@ -9,9 +9,10 @@ function Search() {
   const [pageNum, setPageNum] = useState(1);
 
   const { data, isLoading, isError, totalPage } = useInfiniteFetch(
-    `search/multi?query=${queryString}&include_adult=true&language=en-US&page=${pageNum}`
+    `search/multi?query=${queryString}&include_adult=true&language=en-US&page=${pageNum}`,
+    pageNum
   );
-  console.log(data, pageNum, totalPage);
+  console.log(pageNum, totalPage, data);
 
   return (
     <div className="mt-12 m-1">
@@ -19,17 +20,31 @@ function Search() {
         Search:&nbsp; <q>{queryString}</q>
       </div>
       {data && (
-        <div className="m-2 p-2 grid grid-cols-1 phone:grid-cols-2 laptop:grid-cols-4 bg-gray-900 justify-items-center  gap-3 ">
-          {data.map((data) => {
-            return <MoviePoster key={data.id} movieData={data} type="search" />;
-          })}
-        </div>
+        <>
+          <div className="m-2 p-2 grid grid-cols-1 phone:grid-cols-2 laptop:grid-cols-4 bg-gray-900 justify-items-center  gap-3 ">
+            {data.map((data) => {
+              return (
+                <MoviePoster key={data.id} movieData={data} type="search" />
+              );
+            })}
+          </div>
+          <div
+            className="text-center font-medium "
+            onClick={() =>
+              setPageNum((prev) => (prev < totalPage ? prev + 1 : prev))
+            }
+          >
+            <span className="inline-block p-2 bg-slate-600 text-white ">
+              {totalPage === pageNum ? "End" : "Load more"}
+            </span>
+          </div>
+        </>
       )}
-      {isLoading && <div>loading...</div>}
+
+      {isLoading && <div className="">loading...</div>}
       {isError && <div>{isError}</div>}
     </div>
   );
 }
 
 export default Search;
-

@@ -3,7 +3,6 @@ import { formatDate } from "../utils/helper";
 import LazyImg from "./LazyImg";
 
 function Poster({ posterUrl, movieData, type }) {
-  console.log(type);
   return (
     <div
       className={`relative ${
