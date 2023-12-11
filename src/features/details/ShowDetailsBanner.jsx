@@ -25,7 +25,7 @@ function ShowDetailsBanner() {
   const trailerKey = FetchAgainData?.results[0]?.key;
 
   return (
-    <div className="p-2 min-h-[400px]">
+    <div className="p-2 min-h-[400px] phone:min-h-[900px]">
       {openVideoPopup && (
         <VideoPopUp closePopUp={setOpenVideoPopup} videoKey={trailerKey} />
       )}
@@ -43,7 +43,7 @@ function ShowDetailsBanner() {
               {data.original_name || data.title}
             </div>
             <div className="text-zinc-600">{data.tagline}</div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               {data.genres?.map((genre, i) => {
                 return (
                   <span
