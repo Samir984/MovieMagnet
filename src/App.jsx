@@ -1,14 +1,11 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { lazy } from "react";
-import { Suspense } from "react";
 import AppLayout from "./pages/AppLayout";
+import Home from "./features/home/Home";
+import Details from "./features/details/Details";
+import Search from "./features/search/Search";
+import PageNotFound from "./pages/PageNotFound";
 import { ImgConfigProvider } from "./context/ImageConfig";
-
-const Home = lazy(() => import("./features/home/Home"));
-const Details = lazy(() => import("./features/details/Details"));
-const Search = lazy(() => import("./features/search/Search"));
-const PageNotFound = lazy(() => import("./pages/PageNotFound"));
-const Explore = lazy(() => import("./features/explore/Explore"));
+import Explore from "./features/explore/Explore";
 
 const route = createBrowserRouter([
   {
@@ -16,45 +13,26 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Home />
-          </Suspense>
-        ),
+        element: <Home />,
       },
       {
         path: "/explore/:media_type",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Explore />
-          </Suspense>
-        ),
+        element: <Explore />,
       },
 
       {
         path: "/:media_type/:id",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Details />
-          </Suspense>
-        ),
+        element: <Details />,
       },
 
       {
         path: "/search",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <Search />
-          </Suspense>
-        ),
+        element: <Search />,
       },
+
       {
         path: "/*",
-        element: (
-          <Suspense fallback={<div>Loading...</div>}>
-            <PageNotFound />
-          </Suspense>
-        ),
+        element: <PageNotFound />,
       },
     ],
   },

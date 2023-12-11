@@ -33,7 +33,7 @@ function HeroSection() {
     <div className="relative h-[360px] phone:h-[420px] laptop:h-[520px] desktop:h-[640px] ">
       {!isLoading && (
         <div className="absolute  h-full overflow-hidden w-full ">
-          <img src={bgImg} className="w-full rounded-lg  h-full " />
+          <img src={bgImg} className="w-full  h-full " />
         </div>
       )}
       {isError && (
