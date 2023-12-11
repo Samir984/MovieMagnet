@@ -6,6 +6,7 @@ import { GoPlay } from "react-icons/go";
 import { useState } from "react";
 import VideoPopUp from "../../ui/VideoPopUp";
 import { formatDate, formatTime } from "../../utils/helper";
+import { useEffect } from "react";
 
 function ShowDetailsBanner() {
   const [openVideoPopup, setOpenVideoPopup] = useState(false);
@@ -15,11 +16,16 @@ function ShowDetailsBanner() {
     `${media_type}/${id}?language=en-US`,
     true
   );
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   const posterUrl = imgConfig.posterHQ + data?.poster_path;
   const trailerKey = FetchAgainData?.results[0]?.key;
 
   return (
-    <div className="p-2 ">
+    <div className="p-2 min-h-[400px]">
       {openVideoPopup && (
         <VideoPopUp closePopUp={setOpenVideoPopup} videoKey={trailerKey} />
       )}
@@ -90,3 +96,17 @@ function ShowDetailsBanner() {
 }
 
 export default ShowDetailsBanner;
+
+// import React, { useEffect } from 'react';
+
+// const ScrollToTopOnURLChange = () => {
+//   const location = useLocation();
+
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, [location.pathname]); // Scroll to the top whenever the pathname changes
+
+//   return null; // This component doesn't render anything
+// };
+
+// export default ScrollToTopOnURLChange;

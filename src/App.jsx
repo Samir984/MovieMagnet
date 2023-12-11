@@ -6,6 +6,7 @@ import Search from "./features/search/Search";
 import PageNotFound from "./pages/PageNotFound";
 import { ImgConfigProvider } from "./context/ImageConfig";
 import Explore from "./features/explore/Explore";
+import { useEffect } from "react";
 
 const route = createBrowserRouter([
   {
