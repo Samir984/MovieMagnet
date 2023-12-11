@@ -12,7 +12,6 @@ function Nav() {
   const [searchAction, setSeachAction] = useState(false);
   const [openMobileNav, setOpenMobileNav] = useState(false);
 
-
   useEffect(() => {
     const handleResize = function () {
       if (window.innerWidth <= 540) {
@@ -38,9 +37,6 @@ function Nav() {
         </li>
         <li className="hover:text-gray-300">
           <Link to="explore/tv">TV Shows</Link>
-        </li>
-        <li className="hover:text-gray-300">
-          <Link to="bookmarks">Favourites</Link>
         </li>
       </ul>
 

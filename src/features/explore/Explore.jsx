@@ -1,33 +1,31 @@
 import { useParams } from "react-router-dom";
-import Filter from "../../ui/Filter";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useInfiniteFetch from "../../hooks/useInfiniteFetch";
 import MoviePoster from "../../ui/MediaPoster";
 
 function Explore() {
   const { media_type } = useParams();
-  const [pageNum, setPageNum] = useState(() => {
-    console.log("statepage");
-    return 1;
-  });
+  const [pageNum, setPageNum] = useState(1);
 
-  const filterUrl = `discover/${media_type}?include_adult=true&include_video=true&language=en-US&page=${pageNum}&sort_by=popularity.desc`;
+  const url = `discover/${media_type}?include_adult=true&include_video=true&language=en-US&page=${pageNum}&sort_by=popularity.desc`;
 
   const { data, isLoading, isError, totalPage } = useInfiniteFetch(
-    filterUrl,
+    url,
     pageNum
   );
+  useEffect(() => {
+    setPageNum(1);
+  }, [media_type]);
 
-  console.log(pageNum, data, media_type);
+  console.log(pageNum, data, media_type, isLoading);
 
   const exploreLable = media_type === "movie" ? "Movie" : "Tv Shows";
   return (
     <div className="m-2 mt-12 p-2">
-      <div className="flex flex-wrap justify-between items-center gap-4">
-        <div className="text-2xl font-mono  font-bold">
+      <div className="">
+        <div className="text-xl font-mono  font-bold">
           Explore:&nbsp;<q>{exploreLable}</q>
         </div>
-        <Filter />
       </div>
 
       {data && (

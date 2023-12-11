@@ -13,7 +13,7 @@ function Poster({ posterUrl, movieData, type }) {
     >
       <div
         className={`flex flex-col gap-2 ${
-          !type && "h-60 phone:h-64 laptop:h-[350px]"
+          !type && "h-[190px] phone:h-64 laptop:h-[330px]"
         } `}
       >
         <LazyImg
