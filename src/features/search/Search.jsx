@@ -1,7 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 import useInfiniteFetch from "../../hooks/useInfiniteFetch";
-import { useState } from "react";
+import {  useState } from "react";
 import MoviePoster from "../../ui/MediaPoster";
+
 
 function Search() {
   const [searchParam] = useSearchParams();
@@ -12,6 +13,7 @@ function Search() {
     `search/multi?query=${queryString}&include_adult=true&language=en-US&page=${pageNum}`,
     pageNum
   );
+
   console.log(pageNum, totalPage, data);
 
   return (
