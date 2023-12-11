@@ -8,7 +8,8 @@ function useInfiniteFetch(url, page) {
   const [totalPage, setTotalPage] = useState(0);
 
   const fetchNextPage = useCallback(
-    async function () {
+    async function (url) {
+      console.log("new");
       try {
         setIsLoading(true);
         const nextData = await getApiData(`${url}`);
@@ -19,7 +20,7 @@ function useInfiniteFetch(url, page) {
         setIsError(err);
       }
     },
-    [url]
+    []
   );
 
   useEffect(() => {
@@ -40,7 +41,7 @@ function useInfiniteFetch(url, page) {
       fetchData();
     } else {
       console.log("call");
-      fetchNextPage();
+      fetchNextPage(url);
     }
   }, [url, page, fetchNextPage]);
 

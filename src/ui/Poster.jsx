@@ -6,14 +6,20 @@ function Poster({ posterUrl, movieData, type }) {
   return (
     <div
       className={`relative  ${
-        type === "search" ? "w-60 tablet:w-full" : "h-full w-32 phone:w-40 laptop:w-48 "
+        type === "search"
+          ? "w-60 tablet:w-full"
+          : "h-full w-32 phone:w-[170px] laptop:w-[180px]  "
       }  `}
     >
-      <div className="flex flex-col gap-2 ">
+      <div
+        className={`flex flex-col gap-2 ${
+          !type && "h-60 phone:h-64 laptop:h-[350px]"
+        } `}
+      >
         <LazyImg
           src={posterUrl.includes("null") ? null : posterUrl}
           alt={movieData.original_title}
-          className={`border ${!type && "w-full "}`}
+          className={`border ${!type && "w-full h-full"}`}
           type="poster"
         />
 

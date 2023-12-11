@@ -8,6 +8,7 @@ import Search from "./features/search/Search";
 import Bookmarks from "./features/Bookmarks";
 import PageNotFound from "./pages/PageNotFound";
 import { ImgConfigProvider } from "./context/ImageConfig";
+import Explore from "./features/explore/Explore";
 
 const route = createBrowserRouter([
   {
@@ -18,18 +19,18 @@ const route = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/movie",
-        element: <Movie />,
-      },
-      {
-        path: "/:media_type/:id",
-        element: <Details />,
+        path: "/explore/:media_type",
+        element: <Explore />,
       },
       {
         path: "/tv",
         element: <TvShow />,
       },
-    
+      {
+        path: "/:media_type/:id",
+        element: <Details />,
+      },
+
       {
         path: "/search",
         element: <Search />,

@@ -34,10 +34,10 @@ function Nav() {
         } ${openMobileNav ? "left-0 " : "-left-[600px] "}}`}
       >
         <li className="hover:text-gray-300">
-          <Link to="/movie">Movies</Link>
+          <Link to="explore/movie">Movies</Link>
         </li>
         <li className="hover:text-gray-300">
-          <Link to="/tv">TV Shows</Link>
+          <Link to="explore/tv">TV Shows</Link>
         </li>
         <li className="hover:text-gray-300">
           <Link to="bookmarks">Favourites</Link>
