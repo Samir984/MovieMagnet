@@ -1,12 +1,14 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
+import { Suspense } from "react";
 import AppLayout from "./pages/AppLayout";
-import Home from "./features/home/Home";
-import Details from "./features/details/Details";
-import TvShow from "./features/TvShow";
-import Search from "./features/search/Search";
-import PageNotFound from "./pages/PageNotFound";
 import { ImgConfigProvider } from "./context/ImageConfig";
-import Explore from "./features/explore/Explore";
+
+const Home = lazy(() => import("./features/home/Home"));
+const Details = lazy(() => import("./features/details/Details"));
+const Search = lazy(() => import("./features/search/Search"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+const Explore = lazy(() => import("./features/explore/Explore"));
 
 const route = createBrowserRouter([
   {
@@ -14,28 +16,45 @@ const route = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: "/explore/:media_type",
-        element: <Explore />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Explore />
+          </Suspense>
+        ),
       },
-      {
-        path: "/tv",
-        element: <TvShow />,
-      },
+
       {
         path: "/:media_type/:id",
-        element: <Details />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Details />
+          </Suspense>
+        ),
       },
 
       {
         path: "/search",
-        element: <Search />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Search />
+          </Suspense>
+        ),
       },
       {
         path: "/*",
-        element: <PageNotFound />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <PageNotFound />
+          </Suspense>
+        ),
       },
     ],
   },
