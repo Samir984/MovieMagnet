@@ -25,7 +25,7 @@ function ShowDetailsBanner() {
   const trailerKey = FetchAgainData?.results[0]?.key;
 
   return (
-    <div className="p-2 min-h-[400px] phone:min-h-[900px]">
+    <div className="p-2 min-h-[900px] phone:min-h-[400px] overflow-hidden">
       {openVideoPopup && (
         <VideoPopUp closePopUp={setOpenVideoPopup} videoKey={trailerKey} />
       )}
