@@ -7,19 +7,21 @@ function Poster({ posterUrl, movieData, type }) {
     <div
       className={`relative  ${
         type === "search"
-          ? "w-60 tablet:w-full"
+          ? "w-60 h-[412px] tablet:w-[208px] tablet:h-[420px] laptop:w-[240px]"
           : "h-full w-32 phone:w-[170px] laptop:w-[180px]  "
       }  `}
     >
       <div
         className={`flex flex-col gap-2 ${
-          !type && "h-60 phone:h-64 laptop:h-[350px]"
-        } `}
+          !type && "h-[190px]a phone:h-64 laptop:h-[330px]"
+        } ${type && "h-[86%] tablet:h-auto "}`}
       >
         <LazyImg
           src={posterUrl.includes("null") ? null : posterUrl}
           alt={movieData.original_title}
-          className={`border ${!type && "w-full h-full"}`}
+          className={`border ${!type && "w-full h-full"} ${
+            type && "w-full h-full "
+          }`}
           type="poster"
         />
 
@@ -31,7 +33,7 @@ function Poster({ posterUrl, movieData, type }) {
             {formatDate(movieData?.release_date || movieData.first_air_date)}
           </div>
         </div>
-        <div className="absolute bg-white w-8 h-8 rounded-full flex justify-center items-center bottom-20">
+        <div className="absolute bg-white w-8 h-8 rounded-full flex justify-center items-center bottom-28">
           <span>{Number(movieData.vote_average).toFixed(1)}</span>
         </div>
       </div>
