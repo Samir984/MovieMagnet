@@ -12,7 +12,6 @@ const options = {
 };
 
 export async function getApiData(endPoint) {
-  // console.log(`${BASE_URL}/${endPoint}`);
   try {
     const res = await fetch(`${BASE_URL}/${endPoint}`, options);
     if (!res.ok) throw new Error("Something when wrong");

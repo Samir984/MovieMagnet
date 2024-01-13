@@ -9,7 +9,6 @@ function useInfiniteFetch(url, page) {
 
   const fetchNextPage = useCallback(
     async function (url) {
-      console.log("new");
       try {
         setIsLoading(true);
         const nextData = await getApiData(`${url}`);
@@ -40,7 +39,6 @@ function useInfiniteFetch(url, page) {
     if (page === 1) {
       fetchData();
     } else {
-      console.log("call");
       fetchNextPage(url);
     }
   }, [url, page, fetchNextPage]);

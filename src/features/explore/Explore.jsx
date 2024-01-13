@@ -1,15 +1,18 @@
 import { useParams } from "react-router-dom";
-import Filter from "../../ui/Filter";
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import useInfiniteFetch from "../../hooks/useInfiniteFetch";
 import MoviePoster from "../../ui/MediaPoster";
 
 function Explore() {
   const { media_type } = useParams();
   const [pageNum, setPageNum] = useState(() => {
-    console.log("statepage");
+  
     return 1;
   });
+  useEffect(() => {
+    setPageNum(1);
+  }, [media_type]);
 
   const filterUrl = `discover/${media_type}?include_adult=true&include_video=true&language=en-US&page=${pageNum}&sort_by=popularity.desc`;
 
@@ -18,7 +21,7 @@ function Explore() {
     pageNum
   );
 
-  console.log(pageNum, data, media_type);
+
 
   const exploreLable = media_type === "movie" ? "Movie" : "Tv Shows";
   return (
@@ -27,7 +30,6 @@ function Explore() {
         <div className="text-2xl font-mono  font-bold">
           Explore:&nbsp;<q>{exploreLable}</q>
         </div>
-        <Filter />
       </div>
 
       {data && (

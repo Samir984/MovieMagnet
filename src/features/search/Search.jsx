@@ -14,7 +14,7 @@ function Search() {
     pageNum
   );
 
-  console.log(pageNum, totalPage, data);
+
 
   return (
     <div className="mt-12 m-1">

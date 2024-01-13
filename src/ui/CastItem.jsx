@@ -12,7 +12,7 @@ function CastItem({ cast }) {
   return (
     <div className="flex flex-col h-full flex-shrink-0  laptop:w-44 items-center">
       <LazyImg
-        src={profileUrl.includes("null") ? null : profileUrl}
+        src={profileUrl && !profileUrl.includes("null") ? profileUrl : null}
         alt={cast.name}
         className="rounded-full w-28 border-2 h-28 laptop:w-44 laptop:h-44 "
       />

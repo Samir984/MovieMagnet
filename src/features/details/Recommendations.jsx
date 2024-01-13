@@ -12,6 +12,4 @@ function Recommendations() {
     </div>
   );
 }
-// trending/all/day?language=en-US
-
 export default Recommendations;

@@ -3,11 +3,14 @@ import useFetch from "../../hooks/usefetch";
 import LazyImg from "../../ui/LazyImg";
 import { useImgConfig } from "../../context/ImageConfig";
 import { GoPlay } from "react-icons/go";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import VideoPopUp from "../../ui/VideoPopUp";
 import { formatDate, formatTime } from "../../utils/helper";
 
 function ShowDetailsBanner() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const [openVideoPopup, setOpenVideoPopup] = useState(false);
   const { imgConfig } = useImgConfig();
   const { media_type, id } = useParams();
@@ -19,7 +22,7 @@ function ShowDetailsBanner() {
   const trailerKey = FetchAgainData?.results[0]?.key;
 
   return (
-    <div className="p-2 ">
+    <div className="p-2 laptop:min-h-[420px] min-h-[800px] tablet:min-h-[440px]">
       {openVideoPopup && (
         <VideoPopUp closePopUp={setOpenVideoPopup} videoKey={trailerKey} />
       )}

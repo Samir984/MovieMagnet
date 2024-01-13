@@ -3,7 +3,7 @@ import AppLayout from "./pages/AppLayout";
 import Home from "./features/home/Home";
 
 import Details from "./features/details/Details";
-import TvShow from "./features/TvShow";
+
 import Search from "./features/search/Search";
 import PageNotFound from "./pages/PageNotFound";
 import { ImgConfigProvider } from "./context/ImageConfig";
@@ -21,10 +21,7 @@ const route = createBrowserRouter([
         path: "/explore/:media_type",
         element: <Explore />,
       },
-      {
-        path: "/tv",
-        element: <TvShow />,
-      },
+
       {
         path: "/:media_type/:id",
         element: <Details />,
